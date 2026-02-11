@@ -199,10 +199,13 @@ export default function Personal() {
                       {job.company}
                     </p>
                   </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
+                  <p className="shrink-0 text-zinc-600 dark:text-zinc-400">
                     {job.start} - {job.end}
                   </p>
                 </div>
+                <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+                  {job.description}
+                </p>
               </div>
             </a>
           ))}

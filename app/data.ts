@@ -9,6 +9,7 @@ type Project = {
 type WorkExperience = {
   company: string
   title: string
+  description: string
   start: string
   end: string
   link: string
@@ -52,31 +53,46 @@ export const PROJECTS: Project[] = [
   },
 ]
 
-// Add your real roles and links
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: "[Your Current or Most Recent Studio]",
-    title: "Game Producer",
-    start: "20XX",
+    company: "Roblox Corporation",
+    title: "Concierge Developer Support",
+    description:
+      "Onboard developers into the Concierge program with exclusive support channels and company resources. Maintain SLA compliance while investigating and escalating developer issues. Build relationships with top 500 creators through quarterly consultations. Guide developers on platform features, best practices, and upcoming releases.",
+    start: "Apr 2025",
     end: "Present",
-    link: "#",
+    link: "https://www.roblox.com",
     id: "work1",
   },
   {
-    company: "[Previous Company]",
-    title: "Senior Producer",
-    start: "20XX",
-    end: "20XX",
-    link: "#",
+    company: "Black Hills Information Security",
+    title: "WordPress Content Coordinator",
+    description:
+      "Managed updates across multiple WordPress properties with consistent version control. Performed QA reviews to ensure content accuracy and formatting standards. Developed educational content and interactive cybersecurity simulations. Collaborated with SMEs to translate complex security topics into accessible content.",
+    start: "Jul 2023",
+    end: "Mar 2025",
+    link: "https://www.blackhillsinfosec.com",
     id: "work2",
   },
   {
-    company: "[Earlier Role]",
-    title: "Associate Producer",
-    start: "20XX",
-    end: "20XX",
+    company: "180 Games LLC / Newscape Studios",
+    title: "LUA Programmer",
+    description:
+      "Implemented in-game camera and control systems from storyboards. Provided technical analysis to inform gameplay and UX decisions. Collaborated with designers, artists, and producers on delivery timelines. Debugged collision, rendering, and physics issues across engine subsystems.",
+    start: "Apr 2021",
+    end: "Dec 2023",
     link: "#",
     id: "work3",
+  },
+  {
+    company: "20+ Freelance Clients",
+    title: "Unity Developer",
+    description:
+      "Released narrative games 'Led a Long Way Down' and 'Ceremony' on itch.io. Built cutscenes with Timeline, Cinemachine, ragdoll physics, and FABRIK IK. Designed level blockouts to establish gameplay flow and pacing. Created trailers and integrated 100+ voice lines into cinematic sequences.",
+    start: "Apr 2017",
+    end: "Mar 2022",
+    link: "#",
+    id: "work4",
   },
 ]
 
