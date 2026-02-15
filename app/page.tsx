@@ -141,7 +141,7 @@ export default function Personal() {
       >
         <div className="flex-1 space-y-4">
           <p className="text-zinc-900 dark:text-zinc-100 font-medium italic">
-            The best part of development is the part where you don't know if it'll work yet.
+            Translating Higher level ideas into interactive experiences
           </p>
           <p className="text-zinc-600 dark:text-zinc-400">
             I'm a game developer and interactive designer who loves that iterative, experimental process building prototypes, testing wild ideas, and hunting for what makes something genuinely fun.
