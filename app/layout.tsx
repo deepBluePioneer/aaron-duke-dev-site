@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     canonical: '/'
   },
   title: {
-    default: 'Aaron Duke — Game Producer',
+    default: 'Aaron Duke — Game Developer',
     template: '%s | Aaron Duke'
   },
-  description: 'Hi, I\'m Aaron. I help teams ship casual games people love to play—on web and mobile. Game producer, problem-solver, and forever a player at heart.',
+  description: 'Game developer with hands-on experience in Unity, Lua, real-time systems, and interactive design. Building immersive experiences from the ground up.',
 };
 
 const geist = Geist({

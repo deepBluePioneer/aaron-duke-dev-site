@@ -12,8 +12,12 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
+import Image from 'next/image'
 import {
   PROJECTS,
+  ROBLOX_PROJECTS,
+  RENDERS,
+  UNITY_PROTOTYPES,
   WORK_EXPERIENCE,
   BLOG_POSTS,
   EMAIL,
@@ -53,22 +57,22 @@ function ProjectVideo({ src }: ProjectVideoProps) {
       }}
     >
       <MorphingDialogTrigger>
-        <video
-          src={src}
-          autoPlay
-          loop
-          muted
-          className="aspect-video w-full cursor-zoom-in rounded-xl"
-        />
+        <div className="aspect-video w-full cursor-zoom-in overflow-hidden rounded-xl">
+          <iframe
+            src={src}
+            className="h-full w-full"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
         <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <video
+          <iframe
             src={src}
-            autoPlay
-            loop
-            muted
             className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
           />
         </MorphingDialogContent>
         <MorphingDialogClose
@@ -135,9 +139,15 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="flex-1">
+        <div className="flex-1 space-y-4">
+          <p className="text-zinc-900 dark:text-zinc-100 font-medium italic">
+            The best part of development is the part where you don't know if it'll work yet.
+          </p>
           <p className="text-zinc-600 dark:text-zinc-400">
-            I help teams bring casual games to life—from the first idea to launch and beyond. I love keeping everyone aligned, clearing the path for designers and engineers, and working with external partners so we actually ship on time. At the end of the day, I care about making games that feel good to play and that we can be proud of.
+            I'm a game developer and interactive designer who loves that iterative, experimental process building prototypes, testing wild ideas, and hunting for what makes something genuinely fun.
+          </p>
+          <p className="text-zinc-600 dark:text-zinc-400">
+            I studied Computer Science with a concentration in game software development at Lawrence Tech (BS, 2021) and have worked across programming, design, and production in the game industry. When Roblox exploded during the pandemic, I pivoted into that space and eventually got to work directly with the Roblox Corporation alongside the top 500 developers on the platform.
           </p>
         </div>
       </motion.section>
@@ -146,7 +156,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Things I've Shipped</h3>
+        <h3 className="mb-5 text-lg font-medium">Unity Game Development Projects</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
@@ -166,6 +176,93 @@ export default function Personal() {
                   {project.description}
                 </p>
               </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Roblox Game Development</h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {ROBLOX_PROJECTS.map((project) => (
+            <div key={project.name} className="space-y-2">
+              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                {project.video ? (
+                  <ProjectVideo src={project.video} />
+                ) : project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={600}
+                    height={338}
+                    className="aspect-video w-full rounded-xl object-cover"
+                  />
+                ) : null}
+              </div>
+              <div className="px-1">
+                <a
+                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+                  href={project.link}
+                  target="_blank"
+                >
+                  {project.name}
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
+                </a>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Realtime Renders</h3>
+        <div className="flex flex-col gap-6">
+          {RENDERS.map((render) => (
+            <div key={render.id} className="space-y-2">
+              <div className="relative overflow-hidden rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                <Image
+                  src={render.image}
+                  alt={render.name}
+                  width={1200}
+                  height={675}
+                  className="w-full rounded-xl object-cover"
+                />
+              </div>
+              <p className="px-1 text-sm text-zinc-600 dark:text-zinc-400">
+                {render.name}
+              </p>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-2 text-lg font-medium">Unity Prototypes</h3>
+        <p className="mb-5 text-zinc-600 dark:text-zinc-400">
+          A collection of projects over the years from game jams and personal experiments, messing around and trying out different mechanics.
+        </p>
+        <div className="columns-2 gap-3 sm:columns-3">
+          {UNITY_PROTOTYPES.map((id) => (
+            <div key={id} className="mb-3 break-inside-avoid overflow-hidden rounded-xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://media.giphy.com/media/${id}/giphy.gif`}
+                alt="Unity prototype"
+                className="w-full rounded-xl"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
@@ -256,7 +353,7 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-lg font-medium">Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Always happy to chat about games, production, or what you're building. Say hi at{' '}
+          Get in contact{' '}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
             {EMAIL}
           </a>
